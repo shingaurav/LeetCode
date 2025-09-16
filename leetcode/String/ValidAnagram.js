@@ -50,3 +50,37 @@ var isAnagram = function(s,t){
 // So space complexity is:
 // ✅ O(1) if you assume only lowercase letters (fixed 26 chars)
 // ✅ O(k) if k is the number of unique characters in s
+
+
+//brute force
+
+var isAnagram = function(s, t) {
+    s = s.split('').sort();
+    t = t.split('').sort();
+    if(s.length !== t.length) return false;
+   for(let i = 0 ; i < s.length ; i++ ){
+       if(s[i] !== t[i]) return false
+   }
+   return true;
+};
+
+
+
+
+
+// ✅ Total Time Complexity:
+// O(n)  // splitting
+// + O(n log n)  // sorting
+// + O(n)  // comparing
+// = O(n log n)
+
+
+// ✅ Final Time Complexity: O(n log n)
+
+// 2. sort() is typically in-place
+
+// JavaScript .sort() is usually done in-place, but it can require additional space in the underlying implementation (depends on the browser).
+
+// For the purpose of analysis, we treat it as O(1) auxiliary space, but the arrays themselves are still O(n).
+
+// ✅ Final Space Complexity: O(n)
